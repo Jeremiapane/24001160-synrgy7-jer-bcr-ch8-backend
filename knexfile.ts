@@ -26,6 +26,7 @@ const config: { [key: string]: Knex.Config } = {
             max: 10,
         },
         migrations: {
+            directory: "./db/migrations",
             tableName: "knex_migrations",
         },
         seeds: {
@@ -47,6 +48,7 @@ const config: { [key: string]: Knex.Config } = {
             max: 10,
         },
         migrations: {
+            directory: "./db/migrations",
             tableName: "knex_migrations",
         },
         seeds: {
