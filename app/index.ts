@@ -13,8 +13,8 @@ import YAML from "yaml";
 const file = fs.readFileSync("./openapi.yaml", "utf8");
 const swaggerDocument = YAML.parse(file);
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(cors());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const knexInstance = knex({
     client: "postgresql",

@@ -6,11 +6,9 @@ const config: { [key: string]: Knex.Config } = {
     development: {
         client: "postgresql",
         connection: {
-            host: process.env.PG_HOST,
-            database: process.env.PG_DATABASE,
-            user: process.env.PG_USER,
-            password: process.env.PG_PASSWORD,
-            port: Number(process.env.PG_PORT),
+            database: "binar_challenge_5",
+            user: "postgres",
+            password: "101112",
         },
     },
 
