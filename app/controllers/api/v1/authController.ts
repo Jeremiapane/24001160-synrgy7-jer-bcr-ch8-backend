@@ -58,8 +58,8 @@ export const loginUser = async (req: Request, res: Response) => {
             nama: user.nama,
             email: user.email,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
         return res.status(200).json({
             id: user.id,
@@ -67,8 +67,8 @@ export const loginUser = async (req: Request, res: Response) => {
             email: user.email,
             token,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
     } catch (error) {
         console.error("Error logging in user:", error);
@@ -92,8 +92,8 @@ export const loginAdmin = async (req: Request, res: Response) => {
             nama: user.nama,
             email: user.email,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
         return res.status(200).json({
             id: user.id,
@@ -101,8 +101,8 @@ export const loginAdmin = async (req: Request, res: Response) => {
             email: user.email,
             token,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
     } catch (error) {
         console.error("Error logging in user:", error);
@@ -128,7 +128,7 @@ export const buatAdmin = async (req: Request, res: Response) => {
 
     try {
         const hashedPassword = await hashPassword(password);
-        const newAdmin = await createAdmin({ nama, email, password: hashedPassword, role, created_at: new Date(), updated_at: new Date() });
+        const newAdmin = await createAdmin({ nama, email, password: hashedPassword, role, createdAt: new Date(), updatedAt: new Date() });
         return res.status(201).json({ message: "Admin user created successfully", user: newAdmin });
     } catch (error) {
         console.error("Error creating admin user:", error);
@@ -142,7 +142,7 @@ export const register = async (req: Request, res: Response) => {
 
     try {
         const hashedPassword = await hashPassword(password);
-        const newMember = await createMember({ nama, email, password: hashedPassword, role, created_at: new Date(), updated_at: new Date() });
+        const newMember = await createMember({ nama, email, password: hashedPassword, role, createdAt: new Date(), updatedAt: new Date() });
         return res.status(201).json({ message: "User created successfully", user: newMember });
     } catch (error) {
         console.error("Error creating member user:", error);
@@ -158,15 +158,15 @@ export const handleGoogle = async (req: Request, res: Response) => {
         let user = await getUserByEmail(email.toLowerCase(), role);
         if (!user) {
             const hashedPassword = await hashPassword(jti);
-            user = await createMember({ nama, email: email.toLowerCase(), password: hashedPassword, role, created_at: new Date(), updated_at: new Date() });
+            user = await createMember({ nama, email: email.toLowerCase(), password: hashedPassword, role, createdAt: new Date(), updatedAt: new Date() });
         }
         const token = createToken({
             id: user.id,
             nama: user.nama,
             email: user.email,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
         return res.status(200).json({
             id: user.id,
@@ -174,8 +174,8 @@ export const handleGoogle = async (req: Request, res: Response) => {
             email: user.email,
             token,
             role: user.role,
-            createdAt: user.created_at,
-            updatedAt: user.updated_at,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
         });
     } catch (error) {
         console.error("Error handling Google user:", error);
