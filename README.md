@@ -1,7 +1,7 @@
 
-# Synrgy Challenge 5
+# Synrgy Challenge 8
 
-Repositori ini dibuat dengan tujuan menyelesaikan tantangan ke-5 dari Synrgy Academy, yang melibatkan pembuatan HTTP Server dan implementasi RESTful API.
+Repositori ini dibuat dengan tujuan menyelesaikan tantangan ke-8 dari Synrgy Academy, yang melibatkan pembuatan HTTP Server dan implementasi RESTful API.
 
 
 
