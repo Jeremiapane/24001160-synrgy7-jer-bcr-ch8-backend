@@ -6,12 +6,12 @@ export async function up(knex: Knex): Promise<void> {
         table.string("name", 255).notNullable();
         table.integer("harga", 20).notNullable();
         table.text("foto").notNullable();
-        table.date("start_rent").notNullable();
-        table.date("finish_rent").notNullable();
-        table.timestamp("created_at").notNullable();
-        table.timestamp("updated_at").notNullable();
-        table.string("created_by", 255).notNullable();
-        table.string("updated_by", 255).notNullable();
+        table.date("startRent").notNullable();
+        table.date("finishRent").notNullable();
+        table.timestamp("createdAt").notNullable();
+        table.timestamp("updatedAt").notNullable();
+        table.string("createdBy", 255).notNullable();
+        table.string("updatedBy", 255).notNullable();
     });
 }
 
