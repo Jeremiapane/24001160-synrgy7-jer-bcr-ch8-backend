@@ -1,6 +1,6 @@
 import http from "http";
 import app from "../app";
-const PORT = process.env.PG_PORT || 8686;
+const PORT = process.env.PORT || 8686;
 
 const server = http.createServer(app);
 

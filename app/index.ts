@@ -5,6 +5,7 @@ import knex from "knex";
 import { Model } from "objection";
 import userRoutes from "../config/userRoutes";
 import cors from "cors";
+import knexConfig from "../knexfile";
 
 export const app = express();
 import swaggerUi from "swagger-ui-express";
@@ -16,17 +17,7 @@ const swaggerDocument = YAML.parse(file);
 app.use(cors());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const knexInstance = knex({
-    client: "postgresql",
-    connection: {
-        host: process.env.PG_HOST,
-        database: process.env.PG_DATABASE,
-        user: process.env.PG_USER,
-        password: process.env.PG_PASSWORD,
-        port: Number(process.env.PG_PORT),
-    },
-});
-
+const knexInstance = knex(knexConfig.production);
 Model.knex(knexInstance);
 
 app.use(bodyParser.json());

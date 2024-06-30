@@ -12,7 +12,8 @@
         "build": "tsc -p .",
         "lint": "eslint ./ --fix",
         "migrate": "knex migrate:latest --env production",
-        "seed": "knex seed:run --env production"
+        "seed": "knex seed:run --env production",
+        "prod":"nodemon app/index.ts"
     },
     "author": "",
     "license": "ISC",
