@@ -5,7 +5,6 @@ import knex from "knex";
 import { Model } from "objection";
 import userRoutes from "../config/userRoutes";
 import cors from "cors";
-import knexConfig from "../knexfile";
 
 export const app = express();
 import swaggerUi from "swagger-ui-express";
@@ -14,10 +13,18 @@ import YAML from "yaml";
 const file = fs.readFileSync("./openapi.yaml", "utf8");
 const swaggerDocument = YAML.parse(file);
 
-app.use(cors());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(cors());
 
-const knexInstance = knex(knexConfig.production);
+const knexInstance = knex({
+    client: "postgresql",
+    connection: {
+        database: "binar_challenge_5",
+        user: "postgres",
+        password: "12345",
+    },
+});
+
 Model.knex(knexInstance);
 
 app.use(bodyParser.json());
