@@ -5,7 +5,7 @@ info:
         This is the OpenAPI documentation for the Binar Car Rental Challenge 6.
     version: 1.0.11
 servers:
-    - url:https://synrgy7-ch8-backend-production.up.railway.app/api/v1
+    - url: https://synrgy7-ch8-backend-production.up.railway.app/api/v1
 tags:
     - name: cars
       description: Everything about data cars
