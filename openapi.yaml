@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
     title: Binar Car Rental - OpenAPI 1.0
     description: |-
-        This is the OpenAPI documentation for the Binar Car Rental Challenge 6.
+        This is the OpenAPI documentation for the Binar Car Rental Challenge 8.
     version: 1.0.11
 servers:
     - url: https://synrgy7-ch8-backend-production.up.railway.app/api/v1
@@ -76,6 +76,8 @@ paths:
                                 foto:
                                     type: string
                                     format: binary
+            security:
+                    - BearerAuth: []
             responses:
                 "201":
                     description: Data mobil baru berhasil dibuat
@@ -115,7 +117,9 @@ paths:
                                     type: number
                                 foto:
                                     type: string
-                                    format: binary
+                                    format: binar
+            security:
+                    - BearerAuth: []
             responses:
                 "200":
                     description: Car updated successfully
@@ -143,6 +147,8 @@ paths:
                   required: true
                   schema:
                       type: integer
+            security:
+                    - BearerAuth: []
             responses:
                 "202":
                     description: Data cars berhasil dihapus
@@ -212,6 +218,8 @@ paths:
             tags:
                 - users
             summary: Get current user
+            security:
+                    - BearerAuth: []
             responses:
                 "200":
                     description: Get current user data
@@ -311,6 +319,8 @@ paths:
                                     type: string
                                 password:
                                     type: string
+            security:
+                    - BearerAuth: []
             responses:
                 "201":
                     description: Admin user created successfully
@@ -325,3 +335,11 @@ paths:
                                         type: object
                 "500":
                     description: Internal server error
+security:
+  - BearerAuth: []
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
