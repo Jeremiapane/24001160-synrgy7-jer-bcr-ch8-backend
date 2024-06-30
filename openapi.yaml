@@ -166,52 +166,11 @@ paths:
                                         type: string
                                     message:
                                         type: string
-    /users/superAdmin/login:
-        post:
-            tags:
-                - users
-            summary: Super Admin login
-            requestBody:
-                content:
-                    application/json:
-                        schema:
-                            type: object
-                            properties:
-                                email:
-                                    type: string
-                                password:
-                                    type: string
-            responses:
-                "201":
-                    description: Successful login
-                    content:
-                        application/json:
-                            schema:
-                                type: object
-                                properties:
-                                    id:
-                                        type: integer
-                                    nama:
-                                        type: string
-                                    email:
-                                        type: string
-                                    token:
-                                        type: string
-                                    role:
-                                        type: string
-                                    createdAt:
-                                        type: string
-                                    updatedAt:
-                                        type: string
-                "404":
-                    description: akun tidak ditemukan
-                "401":
-                    description: Password salah!
     /users/admin/login:
         post:
             tags:
                 - users
-            summary: Admin login
+            summary: Admin & SuperAdmin login
             requestBody:
                 content:
                     application/json:

@@ -19,9 +19,11 @@ app.use(cors());
 const knexInstance = knex({
     client: "postgresql",
     connection: {
-        database: "binar_challenge_5",
-        user: "postgres",
-        password: "12345",
+        host: process.env.PG_HOST,
+        database: process.env.PG_DATABASE,
+        user: process.env.PG_USER,
+        password: process.env.PG_PASSWORD,
+        port: Number(process.env.PG_PORT),
     },
 });
 

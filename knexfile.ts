@@ -7,8 +7,8 @@ const config: { [key: string]: Knex.Config } = {
         client: "postgresql",
         connection: {
             database: "binar_challenge_5",
-            user: "postgres",
-            password: "101112",
+            user: "jepan",
+            password: "12345",
         },
     },
 
